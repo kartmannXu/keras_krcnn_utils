@@ -12,7 +12,11 @@ from tqdm import tqdm
 from fire import Fire
 
 
-def sample(file_path: str, interval: int=5, output_dir: str="screenshots"):
+def sample(kwargs):
+    file_path = kwargs.get("file_path")
+    interval = kwargs.get("interval")
+    output_dir = kwargs.get("output_dir")
+
     assert os.path.exists(file_path), f"{file_path} not exists"
 
     cap = cv2.VideoCapture(file_path)
